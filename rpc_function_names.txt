@@ -1,0 +1,3 @@
+setclientversion
+setmaintenance
+SetTournamentEvent

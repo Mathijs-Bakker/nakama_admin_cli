@@ -1,0 +1,13 @@
+{
+  "setmaintenance": {
+    "maintenance": "false"
+  },
+  "setclientversion": {
+    "client_version": "0.0.0"
+  },
+  "setTournamentEvent": {
+    "name": "replace-me",
+    "start_utc": "unix_time_stamp",
+    "end_utc": "unix_time_stamp"
+  }
+}
