@@ -1,5 +1,5 @@
 [package]
-name = "nakama_admin_cli_rust"
+name = "nakama_admin_cli"
 version = "0.1.0"
 edition = "2021"
 

@@ -56,7 +56,7 @@ async fn main() -> Result<(), reqwest::Error> {
             .post(&url)
             .json(&NakamaRequest {
                 id: selected_rpc.to_string(),
-                payload,
+                payload: serde_json::to_string(&payload).expect("Failed to stringify JSON payload"),
             })
             .send()
             .await?;

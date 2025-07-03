@@ -1,12 +1,14 @@
 {
-  "setmaintenance": {
-    "maintenance": "false"
+  "admin_set-maintenance-mode": {
+    "enabled": "false",
+    "reason": "Bugfix",
+    "message": "🚧 Maintenance Mode Activated! Hang tight—we’ll be back online shortly!"
   },
-  "setclientversion": {
-    "client_version": "0.0.0"
+  "admin_set-required-client-version": {
+    "client_version_semver": "0.0.0"
   },
-  "setTournamentEvent": {
-    "name": "replace-me",
+  "set-tournament-event": {
+    "name": "X-mass Tounament",
     "start_utc": "unix_time_stamp",
     "end_utc": "unix_time_stamp"
   }
