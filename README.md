@@ -175,7 +175,7 @@ PRs are welcome!
 
 ## 📃 License
 
-MIT License — see [LICENSE](https://github.com/Mathijs-Bakker/nakama_admin_cli/LICENSE).
+MIT License — see [LICENSE](https://github.com/Mathijs-Bakker/nakama_admin_cli/blob/master/LICENSE).
 
 ---
 
