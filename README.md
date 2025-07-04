@@ -37,6 +37,7 @@ This CLI is meant for **server-to-server** use only. It authenticates using the 
 
 These admin RPCs should be protected like so (TypeScript example):
 
+```ts
     function rpcAdminSetMaintenanceMode(ctx: nkruntime.Context, logger: nkruntime.Logger): string {
         if (ctx.userId) {
             logger.warn("Attempted access from user session.");
@@ -45,7 +46,7 @@ These admin RPCs should be protected like so (TypeScript example):
 
         // Continue with logic...
     }
-
+```
 Your RPCs should **reject calls from clients or the Nakama Console**, which typically use a user session.
 
 ---
@@ -53,42 +54,42 @@ Your RPCs should **reject calls from clients or the Nakama Console**, which typi
 ## 🔧 Installation
 
 ### 📦 Build from source
-
+```bash
     git clone https://github.com/Mathijs-Bakker/nakama_admin_cli.git
     cd nakama_admin_cli
     cargo build --release
-
+```
 Install globally:
-
+```bash
     cp target/release/nakama_admin_cli /usr/local/bin/
-
+```
 ---
 
 ## ⚙️ Environment Configuration
 
 You can store your Nakama config in a `.env` file:
-
+```dotenv
     NAKAMA_URL=http://localhost:7350
-    NAKAMA_HTTP_KEY=defaultkey
-
+    NAKAMA_HTTP_KEY=defaulthttpkey
+```
 Copy the example:
-
+```bash
     cp .env.example .env
-
+```
 Now you can run the CLI without flags:
-
+```bash
     nakama_admin_cli set-maintenance
-
+```
 You can override the values at any time:
-
+```bash
     nakama_admin_cli --server http://localhost:7350 --key "overridekey" set-client-version
-
+```
 ---
 
 ## 🚀 Usage
-
+```bash
     nakama_admin_cli <command> [options]
-
+```
 When you run a command, it:
 1. Loads a JSON template into your default system editor (`$EDITOR`)
 2. You edit and save the file
@@ -99,62 +100,64 @@ When you run a command, it:
 ## 📦 Available Commands
 
 ### 🔧 Set Maintenance Mode
-
+```bash
     nakama_admin_cli set-maintenance
-
+```
 Opens:
-
+```json
     {
-      "enabled": true
+        "enabled": "false",
+        "message": "🚧 Maintenance Mode Activated! Hang tight—we’ll be back online shortly!",
+        "reason": "Bugfix"
     }
-
+```
 ### 📱 Set Required Client Version
-
+```bash
     nakama_admin_cli set-client-version
-
+```
 Opens:
-
+```json
     {
-      "version": "1.2.3"
+      "version": "0.0.0"
     }
-
+```
 ### 🎯 Call Any Admin RPC
-
+```bash
     nakama_admin_cli call Admin_MyTool
-
+```
 Opens:
-
+```json
     {
       "your": "payload"
     }
-
+```
 You can also pipe JSON via `stdin`:
-
+```bash
     echo '{"foo": "bar"}' | nakama_admin_cli call Admin_CustomRPC
-
+```
 ---
 
 ## 📄 Output
 
 Success:
-
+```json
     {
       "message": "Maintenance mode enabled"
     }
-
+```
 Errors:
-
+```bash
     [ERROR] Invalid JSON payload.
-
+```
 ---
 
 ## 🧪 Example Admin RPCs
 
 In your Nakama backend (TypeScript or Go), register RPCs like:
-
+```typescript
     initializer.registerRpc('admin_set-maintenance-mode', rpcAdminSetMaintenanceMode);
     initializer.registerRpc('admin_set-required-client-version', rpcAdminSetRequiredClientVersion);
-
+```
 These are **example RPCs** — you can create and call any admin-only endpoint you need.
 
 ---
@@ -172,10 +175,10 @@ PRs are welcome!
 
 ## 📃 License
 
-MIT License — see `LICENSE`.
+MIT License — see [LICENSE](https://github.com/Mathijs-Bakker/nakama_admin_cli/LICENSE).
 
 ---
 
 ## 💬 Feedback or Questions?
 
-Open an [issue](https://github.com/Mathijs-Bakker/nakama_admin_cli/issues) or start a discussion on the GitHub repo.
+Open an [issue](https://github.com/Mathijs-Bakker/nakama_admin_cli/issues).
