@@ -97,7 +97,9 @@ When you run a command, it:
 
 ---
 
-## 📦 Available Commands
+## 📦 Available (Example) Commands
+
+The project contains three example RPC's configurated in [rpc_function_names.txt]() and [rpc_payload_models.json](). You can change this for your own use. The main thing to remember is that the rpc_function_names.txt contain the Id's or endpoints. And rpc_payload_models.json contains the Json data which is loaded into the Editor before for posting. The Id's must be exactly the same as the names/id's in the rpc_function_names.text.
 
 ### 🔧 Set Maintenance Mode
 ```bash
@@ -120,20 +122,6 @@ Opens:
     {
       "version": "0.0.0"
     }
-```
-### 🎯 Call Any Admin RPC
-```bash
-    nakama_admin_cli call Admin_MyTool
-```
-Opens:
-```json
-    {
-      "your": "payload"
-    }
-```
-You can also pipe JSON via `stdin`:
-```bash
-    echo '{"foo": "bar"}' | nakama_admin_cli call Admin_CustomRPC
 ```
 ---
 
